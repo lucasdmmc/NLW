@@ -14,7 +14,7 @@ datasource db {
 model Pool {
   id        String   @id @default(cuid())
   title     String
-  code      String
+  code      String   @unique
   createdAt DateTime @default(now())
   ownerId   String?
 
@@ -38,6 +38,7 @@ model User {
   id        String   @id @default(cuid())
   name      String
   email     String
+  googleId  String?  @unique
   avatarUrl String?
   createdAt DateTime @default(now())
 
